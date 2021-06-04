@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+   
+
+    <title>Show User</title>
+
+    <style>
+
+        body {
+            background-size: 400px;
+            margin-top: 60px;
+            margin-left: 100px;
+        }
+
+        button {
+            color: blue;
+        }
+
+    </style>
+</head>
+<body>
+    
+
+    <div class="container">
+        <h1>User saat ini : </h1>
+        <ul>
+            <% user.forEach(function(user) { %>
+                <li>Nama : <%= user.name %></li> 
+                <li>Email : <%= user.email %></li>   
+            <% }) %>
+        </ul>
+    </div>
+
+    <button class="btn btn-primary"><a href="/">Kembali</a></button>
+
+  
+
+</body>
+</html>

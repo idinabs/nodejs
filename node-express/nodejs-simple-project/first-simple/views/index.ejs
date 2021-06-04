@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('layout/root/header') %>
+    <title>Home</title>
+
+</head>
+<body>
+
+    <%- include('layout/navbar') %>
+    
+    <div class="container">
+    
+        <h1 style="margin-top: 30px">Ini adalah home</h1>
+    
+        <div class="container">
+            <br>
+            <h4>Daftar User</h4>
+            <br>
+            <div class="container">
+                <% users.forEach(function(user) { %> 
+                    <ul>    
+                        <ul>
+                            <li>
+                                <a href="/show/<%= user.id %>"><h6> <%= user.name %></h6></a>
+                            </li>
+                        </ul>
+                    </ul>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+   
+    <%- include('layout/root/js')%>
+</body>
+</html>

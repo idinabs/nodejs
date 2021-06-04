@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <%- include('../root/header/') %>
+    <title>Register</title>
+
+    <style>
+        body {
+
+            background-size: 400px;
+            margin-top: 100px;
+            padding-left: 400px
+        };
+
+        h1 {
+            padding-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+
+        <h1 style="padding-top: 40px; padding-left: 170px;">Input Data</h1>
+        <div class="card" style="width: 35rem; margin-top: 50px;">
+            <div class="card-body">
+                <form action="/users" method="POST">
+                    <div class="form-group">
+                        <label for="name">Username</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Masukan Username Anda">
+                    </div>
+
+                    <br>
+                    <div class="form-group">
+                      <label for="email">Email address</label>
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Masukan Email Anda">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+          </div>
+    </div>
+
+
+    <%- include('../root/js/')%>
+</body>
+</html>
