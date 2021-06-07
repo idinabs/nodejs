@@ -1,29 +1,78 @@
 const { nanoid } = require('nanoid')
 
+// parsing user model from model
+const user_model = require('../model/user-model')
 
 
-let users = [
-    { id : 1, name : 'Eryanto', email : 'eryanto15@gmail.com' },
-    { id : 2, name : 'Opik', email : 'shofiyurrahmasauqi07@gmail.com' },
+//  statis data
+// let users = [
+//     { id : 1, name : 'Eryanto', email : 'eryanto15@gmail.com' },
+//     { id : 2, name : 'Opik', email : 'shofiyurrahmasauqi07@gmail.com' },
 
-];
+// ];
 
 
 module.exports= {
 
     index : function(req, res){
-        res.render('index', {users})
+
+        let keyword = {}
+        
+        if(req.query.keyword) {
+          keyword = {name : {$regex: req.query.keyword}}
+        }
+
+        user_model.find(keyword, "name _id" ,function(error, users){
+
+            if (error) console.log('data anda tidak bisa di tampilkan')
+
+            console.log('data anda ditampilkan')
+
+            res.render('index', {users})
+
+
+        })
+        
+        // show all user from db mongo
+        // user_model.find(function(error, users){
+
+        //     if (error) console.log('data anda tidak bisa di tampilkan')
+
+        //     console.log('data anda ditampilkan')
+
+        //     res.render('index', {users})
+
+
+        // })
+
+
+        // render template with static data
+        // res.render('index', {users})
     },
     
     show : function(req, res){
 
+
+
         const id = req.params.id
-        const data = users.filter(user => {
+        user_model.findById(id, function(error, data){
 
-            return user.id == id
+            if (error) console.log('data anda tidak bisa ditampilkan')
+            console.log(data)
+
+            res.render('show/show', {user : data})
+
         })
+        
 
-        res.render('show/show', {user : data})
+        // show data using statis data user
+        // const id = req.params.id
+        // const data = users.filter(user => {
+
+        //     return user.id == id
+        // })
+
+        // res.render('show/show', {user : data})
     },
 
 
@@ -45,12 +94,28 @@ module.exports= {
 
     create : function(req, res){
 
-        users.push({
-            id : nanoid(),
+
+
+        const users = new user_model({
+
             name : req.body.name,
             email : req.body.email,
         })
-        console.log(users)
+
+        users.save(function(error, data){
+
+            if (error) console.log('data anda tidak bisa disimpan')
+            console.log(data)
+        })
+
+        
+        // push data with statis data
+        // users.push({
+        //     id : nanoid(),
+        //     name : req.body.name,
+        //     email : req.body.email,
+        // })
+        // console.log(users)
         res.redirect('/')
 
     },

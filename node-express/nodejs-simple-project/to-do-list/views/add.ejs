@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabuncode</title>
+    <link rel="stylesheet" href="../../assets/libs/bootstrap/dist/css/bootstrap.min.css">
+
+    <style>
+        body {
+            width: 500px;
+            margin-top: 100px;
+            margin-left: 400px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="container">
+        <h2 style="margin-left: 40px; padding-left: 130px; ">Input Your
+             List</h2>
+        <div class="card" style="width: 40rem; margin-top: 30px;">
+            <div class="card-body">
+                <form action="/home/add" method="POST" >
+
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="enter your name list">
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                      <label for="slug">Slug</label>
+                      <input type="text" class="form-control" id="slug" name="slug" placeholder="enter your slug list">
+                    </div>
+                    
+                    <br>
+
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <textarea class="form-control" id="description" name="description" rows="4" placeholder="enter your description list"></textarea>
+                    </div>
+                    
+                    <br>
+                    <br>
+                    
+                    <button type="submit" class="btn btn-primary">Kirim</button>
+                    <a href="/" class="btn btn-warning" style="color: white;">Kembali</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    
+
+      
+    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+</html>

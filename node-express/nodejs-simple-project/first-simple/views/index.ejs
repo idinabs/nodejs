@@ -15,14 +15,15 @@
     
         <div class="container">
             <br>
-            <h4>Daftar User</h4>
+            <h4>Daftar User (<%= users.length %>)</h4>
             <br>
             <div class="container">
                 <% users.forEach(function(user) { %> 
                     <ul>    
                         <ul>
                             <li>
-                                <a href="/show/<%= user.id %>"><h6> <%= user.name %></h6></a>
+                                <a href="/show/<%= user._id %>"><h6>
+                                     <%= user.name.toUpperCase() %></h6></a>
                             </li>
                         </ul>
                     </ul>
