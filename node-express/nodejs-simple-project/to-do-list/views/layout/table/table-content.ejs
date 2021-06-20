@@ -17,11 +17,13 @@
                         <tbody>
                             <% lists.forEach(function(list) { %>
                                 <tr>
-                                    <td><%= list.name %></td>
+                                    <td><%= list.name %></a></td>
                                     <td><%= list.slug %> </td>
                                     <th>
-                                        <button class="btn btn-warning"><a href="home/<%= list._id %>/edit " style="color: white;">Edit</a></button>
-                                        <button class="btn btn-danger"><a href="" style="color: aliceblue">Delete</a></button>
+                                        <button class="btn btn-warning"><a href="/home/<%= list._id %>/edit" style="color: white;">Edit</a></button>
+                                        <form action="/home/<%= list._id %>/delete?_method=delete" method="post" class="d-inline">
+                                            <button class="btn btn-danger" type="submit" style="color: white;">Delete</button>
+                                        </form>
                                     </th>
                                 </tr>
                             <% }); %> 
