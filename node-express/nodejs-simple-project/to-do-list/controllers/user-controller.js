@@ -103,7 +103,7 @@ module.exports = {
         try {
             const user = user_model.login(email, password)
             const token = createToken(user._id)
-            res.cookie('jwt', token, {httpOnly: true, maxAge: 10000});
+            res.cookie('jwt', token, {httpOnly: true, maxAge: maxAge});
             // res.status(201).json({user : user._id})
             // console.log({ user : user.email});
 

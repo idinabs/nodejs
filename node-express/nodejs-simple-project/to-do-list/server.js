@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/to-do', {useNewUrlParser: true, useUnifiedTopology: true});
 const list_controller = require('./controllers/list-controller')
-const {verifyToken}  = require('./routes/verify-token')
+const {checkUser}  = require('./routes/verify-token')
 
 app.use(cookieParser());
 
@@ -56,8 +56,8 @@ app.set('views', './views')
 app.set('view engine', 'ejs') 
 
 
+app.use(checkUser)
 
-app.get('/',verifyToken, list_controller.index_table) 
 app.use(list_router)
 app.use(user_router)
 

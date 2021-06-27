@@ -1,5 +1,6 @@
 const list = require('../models/list-model')
 const list_model = require('../models/list-model')
+const user_model = require('../models/user-model')
 const logout = require('express-passport-logout')
 const express = require('express')
 
@@ -10,7 +11,20 @@ app.use(cookieParser)
 
 module.exports = {
 
+    index_check : (req, res) => {
+        
+        list_model.findOne((error, user) => {
+
+            if (error) console.log('data anda tidak bisa dirender')
+                
+            res.render('layout/table/navbar-left', {user})
+    
+        })
+    
+    },
+
     index_table : async (req, res, next) => {
+        
         list_model.find((error, lists) => {
 
             if (error) console.log('data anda tidak bisa dirender')
@@ -95,6 +109,11 @@ module.exports = {
                 res.redirect('/')
 
         })
+    },
+
+    logout : (req, res) => {
+        res.cookie('jwt', '', {maxAge : 1})
+        res.redirect('/')
     },
 
 }
