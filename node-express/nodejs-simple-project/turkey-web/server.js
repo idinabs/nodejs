@@ -6,7 +6,7 @@ const homeRouter = require('./routes/homeRoutes')
 // const authRouter = require('./routes/userAuthRoutes')
 const adminRouter = require('./routes/userAdminRoutes')
 const mongoose = require('mongoose')
-const multer = require('multer')
+const multer = require('multer'
 
 
 
