@@ -1,29 +1,81 @@
-<div id="content" class="p-4 p-md-5">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-
-        <h4 style="color: blue">rabunCode</h4>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Portfolio</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
-            </li>
-          </ul>
+<div class="page-wrapper">
+  <div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+      <div class="row align-items-center">
+        <div class="col">
+          <!-- Page pre-title -->
+          <div class="page-pretitle">
+            Overview
+          </div>
+          <h2 class="page-title">
+            Dashboard
+          </h2>
         </div>
       </div>
-    </nav>
+    </div>
+  </div>
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="row row-deck row-cards">
+        <div class="col-sm-6 col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="subheader">Blog Post</div>
+                <div class="ms-auto lh-1">
+                </div>
+              </div>
+              <div class="h1 mb-3"><%= count %></div>
+            
+              <div class="d-flex mb-2">
+                <div class="ms-auto">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <%- include('portfolioCard') %> 
 
-    <h2 class="mb-4">Sidebar #07</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</div>
+        <div class="col-sm-6 col-lg-3">
+          <div class="card">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <div class="subheader">Pricing</div>
+              </div>
+              <div class="d-flex align-items-baseline">
+                <div class="h1 mb-3 me-2">$6.782</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="card">
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col-sm">Judul Blog</th>
+                <th scope="col">Isi Blog 1</th>
+                <th scope="col">Isi Blog 2</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% data.forEach(function(data) { %> 
+              <tr>
+                <td><%= data.title %></td>
+                <td><%= data.content1 %> </td>
+                <td><%= data.content2 %> </td>
+              </tr>
+            <% }) %> 
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>

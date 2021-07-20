@@ -1,75 +1,55 @@
 const express = require('express');
 const app = express();
-require('dotenv').config()
-// const ejs = require('ejs')
-const homeRouter = require('./routes/homeRoutes')
-// const authRouter = require('./routes/userAuthRoutes')
-const adminRouter = require('./routes/userAdminRoutes')
-const mongoose = require('mongoose')
-const multer = require('multer')
+require('dotenv').config();
+const homeRouter = require('./src/routes/homeRoutes');
+const adminRouter = require('./src/routes/userAdminRoutes');
+const userRouter = require('./src/routes/userAuthRoutes');
+const mongoose = require('mongoose');
+const path = require('path');
+const cookieParser = require('cookie-parser');
 
+
+app.use(cookieParser())
 
 
 // mongodb database
-mongoose.connect('mongodb://localhost/turkey', {
+mongoose.connect('mongodb://localhost/turk', {
     useNewUrlParser: true,
     useUnifiedTopology: true}
 )
 const db = mongoose.connection;
 db.on('error', () => {
-    console.log('tidak bisa terkonek dengan database')
+    console.log('tidak bisa terkonek dengan database');
 }) 
 db.once('open', () => {
-    console.log('sukses konek dengan database')
+    console.log('sukses konek dengan database');
 })
 
-
-
-const fileStorage = multer.diskStorage({ 
-    destination : (req, file, cb) => { 
-        cb(null, 'images');
-    },
-    filename : (req, file, data) => {
-        data(null, new Date().getTime() + '-' + file.originalname);
-    }
-})
-
-const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'image/png' ||
-        file.mimetype === 'image/jpg' || 
-        file.mimetype === 'image/jpeg') 
-    {
-        cb(null, true);
-    
-    } else {
-        cb(null, false);
-    
-    }
-}
 
 // req body express
-app.use(express.json()) 
-app.use(express.urlencoded({ extended: true })) 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // views static engine
 app.engine('ejs', require('express-ejs-extend')); 
-app.set('views', './views')
-app.set('view engine', 'ejs')
-app.use(multer({storage: fileStorage, fileFilter: fileFilter}).single('image'))
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
 
-// public statuc folder
-app.use(express.static('public'))
+// public static folder
+app.use(express.static('public'));
+app.use('/uploads', express.static('uploads'));
+
 
 
 
 // router
-app.use(homeRouter)
-// app.use(authRouter)
-app.use(adminRouter)
+app.use(homeRouter);
+app.use(adminRouter);
+app.use(userRouter);
 app.use((req, res, next) => {
-    res.status(400).render('404')
-})
+    res.status(400).render('404');
+});
 
 
 

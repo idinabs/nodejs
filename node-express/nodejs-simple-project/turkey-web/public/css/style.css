@@ -1,11 +1,4 @@
-/*
-  Theme Name: Flattern
-  Theme URL: https://bootstrapmade.com/flattern-multipurpose-bootstrap-template/
-  Author: BootstrapMade.com
-  Author URL: https://bootstrapmade.com
-*/
 
-/* === prettify === */
 
 @import url('../js/google-code-prettify/prettify.css');
 /* === fontawesome === */
@@ -657,8 +650,14 @@ a.nivo-prevNav:before {
 ==================================== */
 
 section.callaction {
-  background: #f9f9f9;
-  padding: 50px 0 0 0;
+  background: #e6e6e6;
+  padding: 30px 0 0 0;
+}
+
+section.callaction1 {
+  background: #101820;
+  padding: 30px 0 0 0;
+  border-radius: 100px 100px 0px 0px;
 }
 
 /* ===================================
