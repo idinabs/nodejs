@@ -6,7 +6,7 @@ const adminRouter = require('./src/routes/userAdminRoutes');
 const userRouter = require('./src/routes/userAuthRoutes');
 const mongoose = require('mongoose');
 const path = require('path');
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser')
 
 
 app.use(cookieParser())
