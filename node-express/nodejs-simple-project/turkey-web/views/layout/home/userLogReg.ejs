@@ -1,2 +1,10 @@
-<li><a href="#mySignup" data-toggle="modal" style="color: #b39107;"><i class="icon-user"></i> Sign up</a></li>
-<li><a href="#mySignin" data-toggle="modal" style="color: #b39107;">Sign in</a></li>
+<div class="container">
+    <% if(user) { %>
+        <li><a href="/adminPortfolio" data-toggle="modal" style="color: #b39107; text-decoration: none; height: 2rem; text-transform: uppercase;"><%= user.email %> </a></li>
+        <li><a href="/logout" data-toggle="modal" style="color: #b39107; text-decoration: none; height: 2rem; text-transform: uppercase;">logout</a></li>
+    
+    <% } else { %>  
+        <li><a href="/signup" data-toggle="modal" style="color: #b39107;"><i class="icon-user"></i> Sign up</a></li>
+        <li><a href="/signin" data-toggle="modal" style="color: #b39107;">Sign in</a></li>
+    <% } %> 
+</div>
