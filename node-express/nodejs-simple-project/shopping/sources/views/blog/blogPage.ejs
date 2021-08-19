@@ -1,0 +1,116 @@
+<%- extend('../root/home/app.ejs') %> 
+
+
+<section class="blog" id="blog">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 ml-5 mb-2">
+                <div class="blog-heading">
+                    <h2 class="blog-title"><%= title %> </h2>
+                </div>
+            </div>
+            <div class="offset-lg-3 col-lg-6 ml-5 mb-3">
+                <div class="blog-text">
+                    <p>Cari apa yang terbaru disini, lebih mudah mencari informasi terbaru disini</p>
+                </div>
+                
+            </div>
+            <div class="container pb-5">
+                <form class="form-inline my-2 my-lg-0 ml-5 mb-5">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Cari" aria-label="Search">
+                    <button class="btn btn-warning my-2 my-sm-0 ml-1" type="submit"><i class="fa fa-search mr-2"></i>cari</button>
+                </form>
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
+                <div class="blog-post-thumb">
+                    <div class="img">
+                        <img src="home/assets/images/blog-item-01.png" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <h3>
+                            <a href="#">Vivamus ac vehicula dui</a>
+                        </h3>
+                        <div class="text">
+                            Cras aliquet ligula dui, vitae fermentum velit tincidunt id. Praesent eu finibus nunc. Nulla in sagittis eros. Aliquam egestas augue.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
+                <div class="blog-post-thumb">
+                    <div class="img">
+                        <img src="home/assets/images/blog-item-02.png" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <h3>
+                            <a href="#">Phasellus convallis augue</a>
+                        </h3>
+                        <div class="text">
+                            Aliquam commodo ornare nisl, et scelerisque nisl dignissim ac. Vestibulum finibus urna ut velit venenatis, vel ultrices sapien mattis.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
+                <div class="blog-post-thumb">
+                    <div class="img">
+                        <img src="home/assets/images/blog-item-03.png" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <h3>
+                            <a href="#">Nam gravida purus non</a>
+                        </h3>
+                        <div class="text">
+                            Maecenas eu erat vitae dui convallis consequat vel gravida nulla. Vestibulum finibus euismod odio, ut tempus enim varius eu.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
+                <div class="blog-post-thumb">
+                    <div class="img">
+                        <img src="home/assets/images/blog-item-03.png" alt="">
+                    </div>
+                    <div class="blog-content">
+                        <h3>
+                            <a href="#">Nam gravida purus non</a>
+                        </h3>
+                        <div class="text">
+                            Maecenas eu erat vitae dui convallis consequat vel gravida nulla. Vestibulum finibus euismod odio, ut tempus enim varius eu.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script>
+
+    let blog = document.querySelector('.blog');
+    blog.style.marginTop = '13rem'
+    
+
+    let searchForm = document.querySelector('.form-control');
+    searchForm.style.borderRadius = '20px'
+    searchForm.style.height = '2.7rem'
+
+
+    let btnForm = document.querySelector('.btn')
+    btnForm.style.borderRadius = '20px'
+
+
+    let form = document.querySelector('form')
+    form.style.marginTop = '60rem'
+
+    let formControl = document.querySelector('.form-control')
+    formControl.style.width = '17rem'
+  
+</script>
