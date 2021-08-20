@@ -31,17 +31,20 @@ module.exports.pricingPage = (req, res) => {
 
 
 
-module.exports.contactPost = async (req, res) => {
+module.exports.contactPost = (req, res) => {
      
-    try {
+    
         const { username, email, message } = req.body;
-        const user = await contactModels.create(username, email, message);
+        contactModels.create({username : username, email : email, message : message}, error => {
+            if (error) {
+                conosle.log(`data anda gagal di post`);
+            } 
 
-        res.status(201).json(user);
+            res.redirect('/')
+        })
+            
+
+        // res.status(201).json(user);
 
 
-    }catch (err) {
-        handleErrors(err)
-        console.log(handleErrors)
-    }
 }
