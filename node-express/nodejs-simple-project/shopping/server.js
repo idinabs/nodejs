@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 require('dotenv').config();
 const homeRoutes = require('./sources/routes/home/homeRoutes');
+const userRoutes = require('./sources/routes/user/userAuthRoutes');
 const mongoose = require('mongoose');
 
 
@@ -53,3 +54,4 @@ app.use(express.static('public'));
 
 // router
 app.use(homeRoutes);
+app.use(userRoutes);

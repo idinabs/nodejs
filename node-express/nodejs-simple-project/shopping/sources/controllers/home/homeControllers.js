@@ -1,10 +1,19 @@
 const contactModels = require('../../models/home/contactModels');
-const { body, validationResult } = require('express-validator');
-
+// const { body, validationResult } = require('express-validator');
 
 const handleErrors = (err) => {
-    console.log(err.message, err.code)
-}
+    console.log(err.message, err.code);
+    let errors = {username : '', email : '', message : ''}
+
+
+    // validation error
+    if(err.message.includes('Contact validation failed')) {
+        Object.values(err.errors).forEach(({properties}) => {
+            errors[properties.path] = properties.message;
+        });
+    }
+    return errors;
+};
 
 
 module.exports.homePage = (req, res) => {
@@ -31,17 +40,29 @@ module.exports.pricingPage = (req, res) => {
 
 
 
-module.exports.contactPost = (req, res) => {
-     
-    
-        const { username, email, message } = req.body;
-        contactModels.create({username : username, email : email, message : message}, error => {
-            if (error) {
-                conosle.log(`data anda gagal di post`);
-            } 
+module.exports.contactPost = async (req, res) => {
+       
+        try {
+            const { username, email, message } = req.body;
+            const contact = await contactModels.create({username, email, message});
+            res.status(201).json(contact)
 
-            res.redirect('/')
-        })
+
+        } catch (error){
+            const err = handleErrors(error)
+            // console.log(err)
+            res.send(err)
+        }
+    
+    
+    // const { username, email, message } = req.body;
+        // contactModels.create({username : username, email : email, message : message}, error => {
+        //     if (error) {
+        //         conosle.log(`data anda gagal di post`);
+        //     } 
+
+        //     res.redirect('/')
+        // })
             
 
         // res.status(201).json(user);
