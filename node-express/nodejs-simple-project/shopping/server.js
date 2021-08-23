@@ -4,6 +4,7 @@ require('dotenv').config();
 const homeRoutes = require('./sources/routes/home/homeRoutes');
 const userRoutes = require('./sources/routes/user/userAuthRoutes');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 
 
 
@@ -37,6 +38,8 @@ app.use(express.urlencoded({
 }));
 
 
+
+app.use(cookieParser());
 
 // template engine and template folder
 app.set('views', './views');

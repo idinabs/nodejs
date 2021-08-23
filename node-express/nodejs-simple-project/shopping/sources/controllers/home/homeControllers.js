@@ -1,19 +1,19 @@
 const contactModels = require('../../models/home/contactModels');
 // const { body, validationResult } = require('express-validator');
 
-const handleErrors = (err) => {
-    console.log(err.message, err.code);
-    let errors = {username : '', email : '', message : ''}
+// const handleErrors = (err) => {
+//     console.log(err.message, err.code);
+//     let errors = {username : '', email : '', message : ''}
 
 
-    // validation error
-    if(err.message.includes('Contact validation failed')) {
-        Object.values(err.errors).forEach(({properties}) => {
-            errors[properties.path] = properties.message;
-        });
-    }
-    return errors;
-};
+//     // validation error
+//     if(err.message.includes('Contact validation failed')) {
+//         Object.values(err.errors).forEach(({properties}) => {
+//             errors[properties.path] = properties.message;
+//         });
+//     }
+//     return errors;
+// };
 
 
 module.exports.homePage = (req, res) => {
@@ -45,13 +45,17 @@ module.exports.contactPost = async (req, res) => {
         try {
             const { username, email, message } = req.body;
             const contact = await contactModels.create({username, email, message});
-            res.status(201).json(contact)
+
+            // res.status(201).json(contact)
+            res.redirect('/')
+            return contact;
 
 
         } catch (error){
-            const err = handleErrors(error)
+            // const err = handleErrors(error)
             // console.log(err)
-            res.send(err)
+            // res.send(err)
+            console.log(error)
         }
     
     

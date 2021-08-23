@@ -116,7 +116,7 @@ body {
 }
 
 .section.colored {
-  background: #f2f2fe;
+  /* background: #757577; */
 }
 
 .hr {
@@ -174,7 +174,7 @@ body {
 
 .center-text p {
   font-size: 15px;
-  color: #777;
+  color: rgb(0, 0, 0);
   margin-bottom: 30px;
 }
 
@@ -458,7 +458,7 @@ button.main-button:hover {
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #3B566E;
+  background-color: #000000;
   display: block;
   position: absolute;
   width: 30px;
@@ -472,7 +472,7 @@ button.main-button:hover {
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  background-color: #3B566E;
+  background-color: #000000;
   display: block;
   position: absolute;
   width: 30px;
@@ -543,7 +543,8 @@ button.main-button:hover {
 }
 
 .header-area.header-sticky .nav li a {
-  color: #1e1e1e;
+  color: #000000;
+  text-transform:uppercase;
 }
 
 .header-area.header-sticky .nav li a.active {
@@ -954,7 +955,7 @@ button.main-button:hover {
   width: 140%;
   height: 140%;
   opacity: .90;
-  background-image: url(../images/fun-facts-bg.png);
+  background:linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgb(0, 0, 1)), url(https://idsb.tmgrup.com.tr/ly/uploads/images/2020/06/17/41452.JPG);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
