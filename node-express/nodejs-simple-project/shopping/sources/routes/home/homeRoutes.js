@@ -14,7 +14,7 @@ router.route('/blog')
 
 
 router.route('/pricing')
-    .get(verifyToken, homeController.pricingPage)
+    .get(homeController.pricingPage)
 
 
 router.route('/contact')

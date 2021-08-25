@@ -10,21 +10,44 @@
                        
 
                         <% if(user) { %>
-                            <li><a href="/" class="active">Home</a></li>
-                            <li><a href="/blog">Blog</a></li>
-                            <li><a href="/pricing">Pricing</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><b><a href="/login"><%= user.email %></a></b></li>
+                                <li>
+                                    <li class="align-one"><a href="/" class="active ">Home</a></li>
+                                    <li class="align-two"><a href="/blog" >Blog</a></li>
+                                    <li class="align-three"><a href="/pricing" class="align-two">Pricing</a></li>
+                                </li>
+                            
+                                <li>
+                                    <b>
+                                        <li>
+                                            <a href=""><i class="fa fa-heart" aria-hidden="true"></i>Favorite</a>
+                                            <li>
+                                                <a href=""><i class="fas fa fa-comments" aria-hidden="true"></i>Chat</a>
+                                            </li>
+                                            
+                                            <li class="dropdown" id="dropdownMenuButton">
+                                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i><%= user.username %></a>
+                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item" href="#">Account</a>
+                                                    <a class="dropdown-item" href="#">Logout</a>
+                                                </div>
+                                            </li>
+                                        </li>
+                                    </b>
+                                </li>
 
+                            <!-- </li> -->
                         
                         <% } else { %>  
                             <li><a href="/" class="active">Home</a></li>
                             <li><a href="/blog">Blog</a></li>
                             <li><a href="/pricing">Pricing</a></li>
                             <li><a href="#">About</a></li>
-                            <li><a href="/login">Login</a></li>
+                            <li>
+                                <a href="/login">Login</a>
+                            </li>
                         <% } %> 
                     </ul>
+                    
 
                     <a class='menu-trigger'>
                         <span>Menu</span>
